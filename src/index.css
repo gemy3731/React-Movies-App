@@ -83,3 +83,16 @@
   75% { transform: translateX(-500%); }
   100% { transform: translateX(-600%); }
 }
+.slick-next:before,.slick-prev:before{
+  color:#000 !important;
+  font-size: 32px !important;
+}
+.topRatedImg{
+  border: 4px solid #5b5b5c;
+  border-radius: 20px;
+  transition: all 0.8s;
+}
+.topRatedImg:hover{
+  border: 4px solid #000000;
+  transform: scale(1.1);
+}

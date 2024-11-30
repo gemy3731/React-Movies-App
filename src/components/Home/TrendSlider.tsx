@@ -16,7 +16,6 @@ export default function TrendSlider() {
     })
     const {results} = await res.json()
     setData(results)
-    console.log(results);
   }
   return (
     <div className="h-[70vh]">

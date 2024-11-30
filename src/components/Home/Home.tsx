@@ -1,4 +1,5 @@
 import AppContent from "./AppContent";
+import TopRated from "./TopRated";
 import TrendSlider from "./TrendSlider";
 
 
@@ -8,6 +9,7 @@ export default function Home() {
     <div>
       <TrendSlider />
       <AppContent />
+      <TopRated />
     </div>
   )
 }
