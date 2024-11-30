@@ -13,8 +13,8 @@ import TVSix from "../../assets/images/TVSix.jpg";
 
 export default function AppContent() {
   return (
-    <div className="my-20 flex flex-col md:flex-row justify-evenly items-center gap-4">
-      <div className="appContentCard ">
+    <div className="my-20 flex flex-col md:flex-row justify-evenly items-center gap-4 ">
+      <div className="appContentCard shadow-lg">
         <div className="image-slideshow">
           <img src={imageOne} alt="imageOne" />
           <img src={imageTwo} alt="imageTwo" />
@@ -24,7 +24,7 @@ export default function AppContent() {
           <img src={imageSix} alt="imageSix" />
         </div>
       </div>
-      <div className="appContentTVCard">
+      <div className="appContentTVCard shadow-lg">
         <div className="image-slideshow">
           <img src={TVOne} alt="imageOne" />
           <img src={TVTwo} alt="imageTwo" />

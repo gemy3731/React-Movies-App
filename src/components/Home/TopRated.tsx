@@ -27,15 +27,14 @@ export default function TopRated() {
     );
     const { results } = await res.json();
     setData(results);
-    console.log(results);
   };
   return (
-    <div className="my-20">
+    <div className="my-20 bg-white p-10 rounded-[20px] shadow-lg">
         <h3 className="font-bold text-[28px] mb-5">Top Rated</h3>
       <div className="slider-container ">
         <Slider {...settings}>
           {data?.map((movie) => (
-            <div className="p-6">
+            <div key={movie.id} className="p-6">
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt=""
