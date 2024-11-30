@@ -30,7 +30,7 @@ export default function TopRated() {
   };
   return (
     <div className="my-20 bg-white p-10 rounded-[20px] shadow-lg">
-        <h3 className="font-bold text-[28px] mb-5">Top Rated</h3>
+        <h3 className="font-bold text-[32px] mb-5">Top Rated</h3>
       <div className="slider-container ">
         <Slider {...settings}>
           {data?.map((movie) => (

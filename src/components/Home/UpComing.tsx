@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Slider from 'react-slick';
 
-export default function Popular() {
+export default function UpComing() {
     const [data, setData] = useState<any[]>([]);
     useEffect(() => {
       getData();
@@ -16,7 +16,7 @@ export default function Popular() {
     };
     const getData = async () => {
       const res = await fetch(
-        'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
+        'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1',
         {
           headers: {
             accept: "application/json",
@@ -30,7 +30,7 @@ export default function Popular() {
     };
     return (
       <div className="my-20 bg-white p-10 rounded-[20px] shadow-lg">
-          <h3 className="font-bold text-[32px] mb-5">Popular</h3>
+          <h3 className="font-bold text-[32px] mb-5">Upcoming</h3>
         <div className="slider-container ">
           <Slider {...settings}>
             {data?.map((movie) => (
