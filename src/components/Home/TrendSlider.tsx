@@ -19,7 +19,7 @@ export default function TrendSlider() {
     setData(results)
   }
   return (
-    <div className="h-[70vh] shadow-lg">
+    <div className="h-[70vh] shadow-lg overflow-hidden">
       <Carousel>
         {data && data.map((movie)=>(<div key={movie.id} className="w-full">
           <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} className='w-[100%] object-cover' alt={movie.original_title} />

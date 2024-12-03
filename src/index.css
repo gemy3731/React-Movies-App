@@ -93,6 +93,9 @@
   transition: all 0.8s;
 }
 .topRatedImg:hover{
-  border: 4px solid #000000;
+  border: 4px solid #ff5300;
   transform: scale(1.1);
+}
+.active{
+  border-bottom: #ff5300 3px solid;
 }
