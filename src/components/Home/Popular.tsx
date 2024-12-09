@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 
 export default function Popular() {
@@ -78,11 +79,13 @@ export default function Popular() {
           <Slider {...settings}>
             {data?.map((movie) => (
               <div key={movie.id} className="p-6">
+                <Link to={`/moviesDetails/${movie.id}`}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt=""
                   className="w-full cursor-pointer topRatedImg"
                 />
+                </Link>
               </div>
             ))}
           </Slider>
