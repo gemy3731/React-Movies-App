@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import Card from "../Card/Card";
 
 export default function UpComing() {
   const [data, setData] = useState<any[]>([]);
@@ -78,15 +79,7 @@ export default function UpComing() {
       <div className="slider-container ">
         <Slider {...settings}>
           {data?.map((movie) => (
-            <div key={movie.id} className="p-6">
-              <Link to={`/moviesDetails/${movie.id}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt=""
-                className="w-full cursor-pointer topRatedImg"
-              />
-              </Link>
-            </div>
+            <Card key={movie.id} movie={movie} />
           ))}
         </Slider>
       </div>
