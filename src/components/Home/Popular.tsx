@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import Card from '../Card/Card';
+import { movieI } from '../../interfaces/movieInterface';
 
 export default function Popular() {
-    const [data, setData] = useState<any[]>([]);
+    const [data, setData] = useState<movieI[]>([]);
     useEffect(() => {
       getData();
     }, []);

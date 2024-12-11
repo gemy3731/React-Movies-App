@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+
 import Slider from "react-slick";
 import Card from "../Card/Card";
+import { moviesI } from "../../interfaces/movieInterface";
 
 export default function UpComing() {
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<moviesI>();
   useEffect(() => {
     getData();
   }, []);
@@ -70,15 +71,15 @@ export default function UpComing() {
         cache: "force-cache",
       }
     );
-    const { results } = await res.json();
-    setData(results);
+    const finalRes = await res.json();
+    setData(finalRes);
   };
   return (
     <div className="my-20 bg-white p-10 pe-14 rounded-[20px] shadow-lg">
       <h3 className="font-bold text-[32px] mb-5 text-[#ff5300]">Upcoming</h3>
       <div className="slider-container ">
         <Slider {...settings}>
-          {data?.map((movie) => (
+          {data?.results.map((movie) => (
             <Card key={movie.id} movie={movie} />
           ))}
         </Slider>
