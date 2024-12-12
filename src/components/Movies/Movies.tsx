@@ -1,41 +1,44 @@
-import { useEffect, useState } from "react";
-import Card from "../Card/Card";
-import { Pagination } from "flowbite-react";
+import {  useState } from "react";
+import AllMovies from "./AllMovies";
+import PopularMovies from "./PopularMovies";
 import { useSearchParams } from "react-router-dom";
-import { moviesI } from "../../interfaces/movieInterface";
+
 
 export default function Movies() {
-  const [movies, setMovies] = useState<moviesI>();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const currentPage:number = Number(searchParams.get('page')) || 1;
-  
-  useEffect(() => {
-    getMovies();
-  }, [currentPage]);
-  const onPageChange = (page: number):void =>  {
-    setSearchParams({ page:page.toString() });
-};
-  const getMovies = async () => {
-    const res = await fetch(`https://api.themoviedb.org/3/discover/movie?page=${currentPage}`, {
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1N2ExNDAyY2EwYjRmZWEwMmU2MzMyODY3NmYxNmRkNyIsIm5iZiI6MTczMjM3OTc5OC4wMjIsInN1YiI6IjY3NDIwNDk2N2I4MjVlNjg1YjRlNWVmMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Sa5TY__-QVyFct-xdXvl0cIxfAPQGwmIqjaB_T9l29E",
-      },
-    });
-    const finalRes = await res.json();
-    setMovies(finalRes);
-  };
+  const [, setSearchParams] = useSearchParams();
+  const [activeTab, setActiveTab] = useState('all');
+  const activateTab = (tab:string)=>{
+    setActiveTab(tab);
+    setSearchParams({page:"1",tab})
+  }
+
+
+ 
   return (
     <>
-      <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-2 grid-cols-1 ">
-        {movies?.results.map((movie) => (
-          <Card key={movie.id} movie={movie} />
-        ))}
+    <div className="grid grid-cols-12 gap-4">
+      <div className="lg:col-span-2 col-span-12 bg-white p-10 rounded-[20px] shadow-lg h-fit lg:sticky top-[120px] mt-[100px] md:mt-0">
+        <div className="flex lg:flex-col flex-row gap-4 overflow-hidden flex-wrap font-semibold ">
+            <h4 className={activeTab==='all'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('all')}>All Movies</h4>
+            <h4 className={activeTab==='popular'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('popular')}>Popular Movies</h4>
+            <h4 className={activeTab==='top'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>setActiveTab('top')}>Top Rated Movies</h4>
+            <h4 className={activeTab==='upcoming'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>setActiveTab('upcoming')}>Upcoming Movies</h4>
+            <h4 className={activeTab==='action'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>setActiveTab('action')}>Action</h4>
+            <h4 className={activeTab==='animation'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>setActiveTab('animation')}>Animation</h4>
+            <h4 className={activeTab==='comedy'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>setActiveTab('comedy')}>Comedy</h4>
+            <h4 className={activeTab==='crime'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>setActiveTab('crime')}>Crime</h4>
+            <h4 className={activeTab==='drama'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>setActiveTab('drama')}>Drama</h4>
+            <h4 className={activeTab==='fantasy'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>setActiveTab('fantasy')}>Fantasy</h4>
+            <h4 className={activeTab==='romance'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>setActiveTab('romance')}>Romance</h4>
+            <h4 className={activeTab==='war'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>setActiveTab('war')}>War</h4>
+        </div>
       </div>
-      <div className="flex overflow-x-auto sm:justify-center mt-10">
-        {movies&&<Pagination currentPage={currentPage} totalPages={movies?.total_pages} onPageChange={onPageChange} showIcons />}
-    </div>
+      <div className="bg-white p-10 rounded-[20px] shadow-lg lg:col-span-10 col-span-12">
+        {activeTab==='all'&&<AllMovies/>}
+        {activeTab==='popular'&&<PopularMovies/>}
+        
+      </div>
+      </div>
     </>
   );
 }
