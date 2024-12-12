@@ -3,6 +3,7 @@ import AllMovies from "./AllMovies";
 import PopularMovies from "./PopularMovies";
 import { useSearchParams } from "react-router-dom";
 import TopRatedMovies from "./TopRatedMovies";
+import UpcomingMovies from "./UpcomingMovies";
 
 
 export default function Movies() {
@@ -38,6 +39,7 @@ export default function Movies() {
         {activeTab==='all'&&<AllMovies/>}
         {activeTab==='popular'&&<PopularMovies/>}
         {activeTab==='top'&&<TopRatedMovies/>}
+        {activeTab==='upcoming'&&<UpcomingMovies/>}
         
       </div>
       </div>
