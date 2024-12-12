@@ -4,6 +4,7 @@ import PopularMovies from "./PopularMovies";
 import { useSearchParams } from "react-router-dom";
 import TopRatedMovies from "./TopRatedMovies";
 import UpcomingMovies from "./UpcomingMovies";
+import GenreMovies from "./GenreMovies";
 
 
 export default function Movies() {
@@ -31,17 +32,25 @@ export default function Movies() {
             <h4 className={activeTab==='crime'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('crime')}>Crime</h4>
             <h4 className={activeTab==='drama'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('drama')}>Drama</h4>
             <h4 className={activeTab==='fantasy'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('fantasy')}>Fantasy</h4>
+            <h4 className={activeTab==='family'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('family')}>Family</h4>
             <h4 className={activeTab==='romance'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('romance')}>Romance</h4>
-            <h4 className={activeTab==='war'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('war')}>War</h4>
         </div>
       </div>
-      <div className="bg-white p-10 rounded-[20px] shadow-lg lg:col-span-10 col-span-12">
-        {activeTab==='all'&&<AllMovies/>}
-        {activeTab==='popular'&&<PopularMovies/>}
-        {activeTab==='top'&&<TopRatedMovies/>}
-        {activeTab==='upcoming'&&<UpcomingMovies/>}
+        <div className="bg-white p-10 rounded-[20px] shadow-lg lg:col-span-10 col-span-12">
+          {activeTab==='all'&&<AllMovies/>}
+          {activeTab==='popular'&&<PopularMovies/>}
+          {activeTab==='top'&&<TopRatedMovies/>}
+          {activeTab==='upcoming'&&<UpcomingMovies/>}
+          {activeTab==='action'&&<GenreMovies genreId={28} />}
+          {activeTab==='animation'&&<GenreMovies genreId={16} />}
+          {activeTab==='comedy'&&<GenreMovies genreId={35} />}
+          {activeTab==='crime'&&<GenreMovies genreId={80} />}
+          {activeTab==='drama'&&<GenreMovies genreId={18} />}
+          {activeTab==='fantasy'&&<GenreMovies genreId={14} />}
+          {activeTab==='romance'&&<GenreMovies genreId={10749} />}
+          {activeTab==='family'&&<GenreMovies genreId={10751} />}
         
-      </div>
+        </div>
       </div>
     </>
   );
