@@ -12,7 +12,7 @@ export default function TopRatedTV() {
     getMovies();
   }, [currentPage]);
   const onPageChange = (page: number): void => {
-    setSearchParams({ page: page.toString(),tab:'all' });
+    setSearchParams({ page: page.toString(),tab:'top' });
   };
   const getMovies = async () => {
     const res = await fetch(

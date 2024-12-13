@@ -12,7 +12,7 @@ export default function OnAirTV() {
     getMovies();
   }, [currentPage]);
   const onPageChange = (page: number): void => {
-    setSearchParams({ page: page.toString(),tab:'all' });
+    setSearchParams({ page: page.toString(),tab:'onAir' });
   };
   const getMovies = async () => {
     const res = await fetch(
