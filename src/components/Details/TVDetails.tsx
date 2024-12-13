@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { movieDetailsI } from "../../interfaces/movieDetailsInterface";
 import { Badge, Rating } from "flowbite-react";
 
-export default function MoviesDetails() {
+export default function TVDetails() {
   const [details, setDetails] = useState<movieDetailsI>();
   const { id } = useParams<string>();
   useEffect(() => {
@@ -12,7 +12,7 @@ export default function MoviesDetails() {
 
   const getDetails = async (id: string | undefined) => {
     const res = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
+      `https://api.themoviedb.org/3/tv/${id}?language=en-US`,
       {
         headers: {
           accept: "application/json",

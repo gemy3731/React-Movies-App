@@ -10,6 +10,7 @@ import TVShows from './components/TVShows/TVShows';
 import Favorite from './components/Favorite/Favorite';
 import Watchlist from './components/Watchlist/Watchlist';
 import MoviesDetails from './components/Details/MoviesDetails';
+import TVDetails from './components/Details/TVDetails';
 const router = createBrowserRouter([
   {path:'',element:<Layout/>,children:[
     {index:true,element:<Home/>},
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
     {path:'favorite',element:<Favorite/>},
     {path:'watchlist',element:<Watchlist/>},
     {path:'moviesDetails/:id',element:<MoviesDetails/>},
+    {path:'tvDetails/:id',element:<TVDetails/>},
   ]}
 ])
 function App() {
