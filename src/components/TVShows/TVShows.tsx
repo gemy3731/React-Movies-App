@@ -29,13 +29,13 @@ export default function TVShows() {
             <h4 className={activeTab==='airingToday'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('airingToday')}>Airing Today</h4>
             <h4 className={activeTab==='onAir'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('onAir')}>On The Air</h4>
             <h4 className={activeTab==='action'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('action')}>Action</h4>
-            <h4 className={activeTab==='animation'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('animation')}>Animation</h4>
+            <h4 className={activeTab==='reality'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('reality')}>Reality</h4>
             <h4 className={activeTab==='comedy'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('comedy')}>Comedy</h4>
             <h4 className={activeTab==='crime'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('crime')}>Crime</h4>
             <h4 className={activeTab==='drama'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('drama')}>Drama</h4>
-            <h4 className={activeTab==='fantasy'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('fantasy')}>Fantasy</h4>
+            <h4 className={activeTab==='news'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('news')}>News</h4>
             <h4 className={activeTab==='family'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('family')}>Family</h4>
-            <h4 className={activeTab==='romance'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('romance')}>Romance</h4>
+            <h4 className={activeTab==='mystery'?'cursor-pointer text-[#ff5300]':'cursor-pointer'} onClick={()=>activateTab('mystery')}>Mystery</h4>
         </div>
       </div>
         <div className="bg-white p-10 rounded-[20px] shadow-lg lg:col-span-10 col-span-12">
@@ -44,14 +44,14 @@ export default function TVShows() {
           {activeTab==='top'&&<TopRatedTV/>}
           {activeTab==='airingToday'&&<AiringTodayTV/>}
           {activeTab==='onAir'&&<OnAirTV/>}
-          {activeTab==='action'&&<GenreTV genreId={28} />}
-          {activeTab==='animation'&&<GenreTV genreId={16} />}
-          {activeTab==='comedy'&&<GenreTV genreId={35} />}
-          {activeTab==='crime'&&<GenreTV genreId={80} />}
-          {activeTab==='drama'&&<GenreTV genreId={18} />}
-          {activeTab==='fantasy'&&<GenreTV genreId={14} />}
-          {activeTab==='romance'&&<GenreTV genreId={10749} />}
-          {activeTab==='family'&&<GenreTV genreId={10751} />}
+          {activeTab==='action'&&<GenreTV tab='action' genreId={10759} />}
+          {activeTab==='reality'&&<GenreTV tab='reality' genreId={10764} />}
+          {activeTab==='comedy'&&<GenreTV tab='comedy' genreId={35} />}
+          {activeTab==='crime'&&<GenreTV tab='crime' genreId={80} />}
+          {activeTab==='drama'&&<GenreTV tab='drama' genreId={18} />}
+          {activeTab==='news'&&<GenreTV tab='news' genreId={10763} />}
+          {activeTab==='mystery'&&<GenreTV tab='mystery' genreId={9648} />}
+          {activeTab==='family'&&<GenreTV tab='family' genreId={10751} />}
         
         </div>
       </div>

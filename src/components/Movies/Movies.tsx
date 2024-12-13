@@ -41,14 +41,14 @@ export default function Movies() {
           {activeTab==='popular'&&<PopularMovies/>}
           {activeTab==='top'&&<TopRatedMovies/>}
           {activeTab==='upcoming'&&<UpcomingMovies/>}
-          {activeTab==='action'&&<GenreMovies genreId={28} />}
-          {activeTab==='animation'&&<GenreMovies genreId={16} />}
-          {activeTab==='comedy'&&<GenreMovies genreId={35} />}
-          {activeTab==='crime'&&<GenreMovies genreId={80} />}
-          {activeTab==='drama'&&<GenreMovies genreId={18} />}
-          {activeTab==='fantasy'&&<GenreMovies genreId={14} />}
-          {activeTab==='romance'&&<GenreMovies genreId={10749} />}
-          {activeTab==='family'&&<GenreMovies genreId={10751} />}
+          {activeTab==='action'&&<GenreMovies tab="action" genreId={28} />}
+          {activeTab==='animation'&&<GenreMovies tab="animation" genreId={16} />}
+          {activeTab==='comedy'&&<GenreMovies tab="comedy" genreId={35} />}
+          {activeTab==='crime'&&<GenreMovies tab="crime" genreId={80} />}
+          {activeTab==='drama'&&<GenreMovies tab="drama" genreId={18} />}
+          {activeTab==='fantasy'&&<GenreMovies tab="fantasy" genreId={14} />}
+          {activeTab==='romance'&&<GenreMovies tab="romance" genreId={10749} />}
+          {activeTab==='family'&&<GenreMovies tab="family" genreId={10751} />}
         
         </div>
       </div>

@@ -4,7 +4,7 @@ import { Pagination } from "flowbite-react";
 import { useSearchParams } from "react-router-dom";
 import {  movieI, moviesI } from "../../interfaces/movieInterface";
 
-export default function GenreMovies({genreId}:{genreId:number}) {
+export default function GenreMovies({tab,genreId}:{tab:string,genreId:number}) {
     const [movies, setMovies] = useState<moviesI>();
     const [filteredMovies, setFilteredMovies] = useState<movieI[]>([]);
     const [searchParams, setSearchParams] = useSearchParams();
@@ -13,7 +13,7 @@ export default function GenreMovies({genreId}:{genreId:number}) {
       getMovies();
     }, [currentPage]);
     const onPageChange = (page: number): void => {
-      setSearchParams({ page: page.toString(),tab:'action' });
+      setSearchParams({ page: page.toString(),tab });
     };
     const filterByGenre = (movies:movieI[], genreId:number) => {
          setFilteredMovies(movies.filter(movie => movie.genre_ids.includes(genreId)))
