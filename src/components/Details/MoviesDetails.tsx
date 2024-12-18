@@ -180,24 +180,28 @@ export default function MoviesDetails() {
           </div>
         </div>
       </div>
-      <div className="bg-white px-10 py-7 rounded-[20px] shadow-lg ">
-        <h3 className="font-bold text-[32px] mb-5 text-[#ff5300]">Trailer</h3>
-        <iframe
-          src={`https://www.youtube.com/embed/${videos}`}
-          allowFullScreen
-          className="w-full h-[620px] rounded-[20px]"
-        ></iframe>
-      </div>
-      <div className="bg-white p-10 pe-14 rounded-[20px] shadow-lg">
-        <h3 className="font-bold text-[32px] mb-5 text-[#ff5300]">Similar</h3>
-        <div className="slider-container ">
-        <Slider {...settings}>
-          {similar?.results.map((movie) => (
-            <Card key={movie.id} movie={movie} />
-          ))}
-        </Slider>
-      </div>
-      </div>
+      {videos && (
+        <div className="bg-white px-10 py-7 rounded-[20px] shadow-lg ">
+          <h3 className="font-bold text-[32px] mb-5 text-[#ff5300]">Trailer</h3>
+          <iframe
+            src={`https://www.youtube.com/embed/${videos}`}
+            allowFullScreen
+            className="w-full h-[620px] rounded-[20px]"
+          ></iframe>
+        </div>
+      )}
+      {similar && (
+        <div className="bg-white p-10 pe-14 rounded-[20px] shadow-lg">
+          <h3 className="font-bold text-[32px] mb-5 text-[#ff5300]">Similar</h3>
+          <div className="slider-container ">
+            <Slider {...settings}>
+              {similar?.results.map((movie) => (
+                <Card key={movie.id} movie={movie} />
+              ))}
+            </Slider>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
