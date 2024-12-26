@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const tokenSlice = createSlice({
-    name:'token',
+    name:'session',
     initialState:{
-        token:''
+        userSession:''
     },
     reducers:{
         setToken:(state,action)=>{
-            state.token=action.payload;
+            state.userSession=action.payload;
         },
         clearToken:(state)=>{
-            state.token='';
+            state.userSession='';
         }
     }
 })
