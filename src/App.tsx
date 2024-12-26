@@ -14,6 +14,7 @@ import TVDetails from "./components/Details/TVDetails";
 import CreateToken from "./components/Session/CreateToken";
 import { Provider } from "react-redux";
 import { store } from "./Redux/store";
+import { Toaster } from "react-hot-toast";
 const router = createBrowserRouter([
   {
     path: "",
@@ -36,6 +37,7 @@ function App() {
     <>
       <Provider store={store}>
         <RouterProvider router={router} />
+        <Toaster />
       </Provider>
     </>
   );
