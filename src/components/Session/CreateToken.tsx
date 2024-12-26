@@ -7,10 +7,12 @@ import toast from "react-hot-toast";
 export default function CreateToken() {
   const [isAuth, setIsAuth] = useState(false);
   const [searchParams] = useSearchParams();
-  const url_request_token = searchParams.get("request_token");
+  const url_request_token = searchParams.get("request_token")??'';
   const navigate = useNavigate();
   // const {token} = useSelector((store:any)=>store.tokenReducer)
   const dispatch = useDispatch();
+  console.log( url_request_token);
+  
   const createRequestToken = async () => {
     const res = await fetch(
       "https://api.themoviedb.org/3/authentication/token/new",
