@@ -5,12 +5,17 @@ import { Badge, Rating } from "flowbite-react";
 import Slider from "react-slick";
 import Card from "../Card/Card";
 import { moviesI } from "../../interfaces/movieInterface";
+import { IoMdAdd } from "react-icons/io";
+import { MdFavorite } from "react-icons/md";
+import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
 
 export default function MoviesDetails() {
   const [details, setDetails] = useState<movieDetailsI>();
   const [videos, setVideos] = useState<string>();
   const [similar, setSimialr] = useState<moviesI>();
   const { id } = useParams<string>();
+  const { userSession } = useSelector((store: any) => store.tokenReducer);
   useEffect(() => {
     getDetails(id);
     getVideo(id);
@@ -113,6 +118,83 @@ export default function MoviesDetails() {
     const finalRes = await res.json();
     setSimialr(finalRes);
   };
+  
+  const addFav = async () => {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/account/21648036/favorite?session_id=${userSession}`,
+      {
+        headers: {
+          accept: "application/json",
+          "content-type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1N2ExNDAyY2EwYjRmZWEwMmU2MzMyODY3NmYxNmRkNyIsIm5iZiI6MTczMjM3OTc5OC4wMjIsInN1YiI6IjY3NDIwNDk2N2I4MjVlNjg1YjRlNWVmMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Sa5TY__-QVyFct-xdXvl0cIxfAPQGwmIqjaB_T9l29E",
+        },
+        cache: "no-cache",
+        body: JSON.stringify({
+          media_type: "movie",
+          media_id: id,
+          favorite: true,
+        }),
+        method: "POST",
+      }
+    );
+    const finalRes = await res.json();
+    if (finalRes.success) {
+      toast.success("Added to Favourite list", {
+        position: "top-center",
+        style: {
+          backgroundColor: "black",
+          color: "white",
+        },
+      });
+    } else {
+      toast.error("Something went wrong", {
+        position: "top-center",
+        style: {
+          backgroundColor: "black",
+          color: "white",
+        },
+      });
+    }
+  };
+  const addWatchList = async () => {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/account/21648036/watchlist?session_id=${userSession}`,
+      {
+        headers: {
+          accept: "application/json",
+          "content-type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1N2ExNDAyY2EwYjRmZWEwMmU2MzMyODY3NmYxNmRkNyIsIm5iZiI6MTczMjM3OTc5OC4wMjIsInN1YiI6IjY3NDIwNDk2N2I4MjVlNjg1YjRlNWVmMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Sa5TY__-QVyFct-xdXvl0cIxfAPQGwmIqjaB_T9l29E",
+        },
+        cache: "no-cache",
+        body: JSON.stringify({
+          media_type: "movie",
+          media_id: id,
+          watchlist: true,
+        }),
+        method: "POST",
+      }
+    );
+    const finalRes = await res.json();
+    if (finalRes.success) {
+      toast.success("Added to watchlist", {
+        position: "top-center",
+        style: {
+          backgroundColor: "black",
+          color: "white",
+        },
+      });
+    } else {
+      toast.error("Something went wrong", {
+        position: "top-center",
+        style: {
+          backgroundColor: "black",
+          color: "white",
+        },
+      });
+    }
+  };
   return (
     <div className="max-w-[1440px] mx-auto flex flex-col gap-16">
       <div className="grid grid-cols-3 gap-10 mt-72 justify-between md:mt-0  bg-white px-10 py-7 rounded-[20px] shadow-lg">
@@ -176,7 +258,12 @@ export default function MoviesDetails() {
                 </button>
               </a>
             )}
+
           </div>
+          <div className="flex flex-col md:flex-row justify-end items-center gap-10 py-8 text-[32px] text-black">
+                      <IoMdAdd onClick={addWatchList} title="Add to watchlist"  className="cursor-pointer" />
+                      <MdFavorite onClick={addFav} title="Add favourite"  className="cursor-pointer" />
+                    </div>
         </div>
       </div>
       {videos && (
