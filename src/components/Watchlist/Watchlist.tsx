@@ -31,8 +31,8 @@ export default function Watchlist() {
     setMovies(finalRes);
   };
   return (
-    <>
-      <div className=" grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-2 grid-cols-1 ">
+    <div className="bg-white p-10 rounded-[20px] shadow-lg mt-72 md:mt-0">
+      <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-2 grid-cols-1 ">
         {movies?.results.map((movie) => (
           <Card key={movie.id} movie={movie} pos='watchlist' />
         ))}
@@ -47,7 +47,7 @@ export default function Watchlist() {
           />
         )}
       </div>
-    </>
+    </div>
   );
 }
 
