@@ -30,7 +30,7 @@ export default function CreateToken() {
       localStorage.setItem("token", finalRes.request_token);
       
       open(
-        `https://www.themoviedb.org/authenticate/${finalRes.request_token}?redirect_to=http://localhost:5173/session`,
+        `https://www.themoviedb.org/authenticate/${finalRes.request_token}?redirect_to=https://react-movies-app-lovat.vercel.app/session`,
         "_self"
       );
     }
