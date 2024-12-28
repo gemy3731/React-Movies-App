@@ -7,7 +7,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Movies from "./components/Movies/Movies";
 import TVShows from "./components/TVShows/TVShows";
-import Favorite from "./components/Favourite/Favourite";
 import Watchlist from "./components/Watchlist/Watchlist";
 import MoviesDetails from "./components/Details/MoviesDetails";
 import TVDetails from "./components/Details/TVDetails";
@@ -18,6 +17,7 @@ import { Toaster } from "react-hot-toast";
 import ProtectedRoutes from "./protectedRoutes/ProtectedRoutes";
 import Favourite from "./components/Favourite/Favourite";
 import ProtectedRoutesSession from "./protectedRoutes/ProtectedRoutesSession";
+import NotFound from "./components/NotFound/NotFound";
 const router = createBrowserRouter([
   {
     path: "",
@@ -25,6 +25,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "home", element: <Home /> },
+      { path: "*", element: <NotFound /> },
       { path: "movies", element: <Movies /> },
       { path: "tvShows", element: <TVShows /> },
       {
