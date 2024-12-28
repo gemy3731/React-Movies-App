@@ -42,8 +42,8 @@ export default function NavBar() {
               <NavLink to="/watchlist" className="flex items-center gap-2 pb-1">
               <IoMdAdd /> Watchlist
             </NavLink>
-            <NavLink to="/favorite" className="flex items-center gap-2 pb-1">
-              <MdOutlineFavorite /> Favorite
+            <NavLink to="/favourite" className="flex items-center gap-2 pb-1">
+              <MdOutlineFavorite /> Favourite
             </NavLink>
             </>}
             
