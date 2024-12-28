@@ -118,7 +118,7 @@ export default function MoviesDetails() {
     const finalRes = await res.json();
     setSimialr(finalRes);
   };
-  
+
   const addFav = async () => {
     const res = await fetch(
       `https://api.themoviedb.org/3/account/21648036/favorite?session_id=${userSession}`,
@@ -258,12 +258,20 @@ export default function MoviesDetails() {
                 </button>
               </a>
             )}
-
           </div>
-          <div className="flex flex-col md:flex-row justify-end items-center gap-10 py-8 text-[32px] text-black">
-                      <IoMdAdd onClick={addWatchList} title="Add to watchlist"  className="cursor-pointer" />
-                      <MdFavorite onClick={addFav} title="Add favourite"  className="cursor-pointer" />
-                    </div>
+          {userSession&&<div className="flex flex-col md:flex-row justify-end items-center gap-10 py-8 text-[32px] text-black">
+            <IoMdAdd
+              onClick={addWatchList}
+              title="Add to watchlist"
+              className="cursor-pointer"
+            />
+            <MdFavorite
+              onClick={addFav}
+              title="Add favourite"
+              className="cursor-pointer"
+            />
+          </div>}
+          
         </div>
       </div>
       {videos && (
