@@ -18,7 +18,7 @@ export default function Favorite() {
   };
   const getFavMovies = async () => {
     const res = await fetch(
-      `https://api.themoviedb.org/3/account/21648036/favorite/movies?page=1&session_id=${userSession}&sort_by=created_at.asc`,
+      `https://api.themoviedb.org/3/account/21648036/favorite/movies?page=${currentPage}&session_id=${userSession}&sort_by=created_at.asc`,
       {
         headers: {
           accept: "application/json",
