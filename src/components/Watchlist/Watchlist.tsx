@@ -11,12 +11,14 @@ export default function Watchlist() {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage: number = Number(searchParams.get("page")) || 1;
   useEffect(() => {
-    getFavMovies();
+    getWatchlistMovies();
   }, [currentPage]);
   const onPageChange = (page: number): void => {
     setSearchParams({ page: page.toString(),tab:'all' });
   };
-  const getFavMovies = async () => {
+  const getWatchlistMovies = async () => {
+    console.log(userSession);
+    
     const res = await fetch(
       `https://api.themoviedb.org/3/account/21648036/watchlist/movies?page=${currentPage}&session_id=${userSession}&sort_by=created_at.asc`,
       {
@@ -25,6 +27,7 @@ export default function Watchlist() {
           Authorization:
             "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1N2ExNDAyY2EwYjRmZWEwMmU2MzMyODY3NmYxNmRkNyIsIm5iZiI6MTczMjM3OTc5OC4wMjIsInN1YiI6IjY3NDIwNDk2N2I4MjVlNjg1YjRlNWVmMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Sa5TY__-QVyFct-xdXvl0cIxfAPQGwmIqjaB_T9l29E",
         },
+        cache:'no-cache',
       }
     );
     const finalRes = await res.json();

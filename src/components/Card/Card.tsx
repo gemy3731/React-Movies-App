@@ -92,7 +92,7 @@ export default function Card({ movie, pos=null }: { movie: movieI,pos?:string|nu
             className="w-full cursor-pointer"
           />
         </Link>
-        {pos!='fav'&&pos!='watchlist'&&<div className="addLayout absolute bottom-[3px] left-[3px] right-[3px] rounded-b-[20px] bg-slate-900 bg-opacity-85 flex flex-col md:flex-row justify-evenly items-center gap-4 py-8 text-[32px] text-white">
+        {userSession&&pos!='fav'&&pos!='watchlist'&&<div className="addLayout absolute bottom-[3px] left-[3px] right-[3px] rounded-b-[20px] bg-slate-900 bg-opacity-85 flex flex-col md:flex-row justify-evenly items-center gap-4 py-8 text-[32px] text-white">
           <IoMdAdd title="Add to watchlist" onClick={addWatchList} className="cursor-pointer" />
           <MdFavorite title="Add favourite" onClick={addFav} className="cursor-pointer" />
         </div>}

@@ -38,12 +38,15 @@ export default function NavBar() {
             <NavLink to="/" className="flex items-center gap-2 pb-1">
               <IoMdHome /> Home
             </NavLink>
-            <NavLink to="/watchlist" className="flex items-center gap-2 pb-1">
+            {userSession&&<>
+              <NavLink to="/watchlist" className="flex items-center gap-2 pb-1">
               <IoMdAdd /> Watchlist
             </NavLink>
             <NavLink to="/favorite" className="flex items-center gap-2 pb-1">
               <MdOutlineFavorite /> Favorite
             </NavLink>
+            </>}
+            
             <NavLink to="/movies" className="flex items-center gap-2 pb-1">
               <RiMovie2Line /> Movies
             </NavLink>

@@ -5,7 +5,7 @@ import { moviesI } from "../../interfaces/movieInterface";
 import { useSearchParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-export default function Favorite() {
+export default function Favourite() {
   const [movies, setMovies] = useState<moviesI>();
   const { userSession } = useSelector((store: any) => store.tokenReducer);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -25,6 +25,7 @@ export default function Favorite() {
           Authorization:
             "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1N2ExNDAyY2EwYjRmZWEwMmU2MzMyODY3NmYxNmRkNyIsIm5iZiI6MTczMjM3OTc5OC4wMjIsInN1YiI6IjY3NDIwNDk2N2I4MjVlNjg1YjRlNWVmMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Sa5TY__-QVyFct-xdXvl0cIxfAPQGwmIqjaB_T9l29E",
         },
+        cache:'no-cache',
       }
     );
     const finalRes = await res.json();
