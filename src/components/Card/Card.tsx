@@ -4,7 +4,7 @@ import { IoMdAdd } from "react-icons/io";
 import { MdFavorite } from "react-icons/md";
 import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
-export default function Card({ movie }: { movie: movieI }) {
+export default function Card({ movie, pos=null }: { movie: movieI,pos?:string|null }) {
   const { userSession } = useSelector((store: any) => store.tokenReducer);
   const addFav = async () => {
     const res = await fetch(
@@ -92,10 +92,11 @@ export default function Card({ movie }: { movie: movieI }) {
             className="w-full cursor-pointer"
           />
         </Link>
-        <div className="addLayout absolute bottom-[3px] left-[3px] right-[3px] rounded-b-[20px] bg-slate-900 bg-opacity-85 flex flex-col md:flex-row justify-evenly items-center gap-4 py-8 text-[32px] text-white">
+        {pos!='fav'&&<div className="addLayout absolute bottom-[3px] left-[3px] right-[3px] rounded-b-[20px] bg-slate-900 bg-opacity-85 flex flex-col md:flex-row justify-evenly items-center gap-4 py-8 text-[32px] text-white">
           <IoMdAdd title="Add to watchlist" onClick={addWatchList} className="cursor-pointer" />
           <MdFavorite title="Add favourite" onClick={addFav} className="cursor-pointer" />
-        </div>
+        </div>}
+        
       </div>
     </div>
   );

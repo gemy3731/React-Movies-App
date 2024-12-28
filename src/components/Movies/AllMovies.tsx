@@ -32,7 +32,7 @@ export default function AllMovies() {
     <>
       <div className=" grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-2 grid-cols-1 ">
         {movies?.results.map((movie) => (
-          <Card key={movie.id} movie={movie} />
+          <Card key={movie.id} movie={movie}  />
         ))}
       </div>
       <div className="flex overflow-x-auto sm:justify-center mt-10">
